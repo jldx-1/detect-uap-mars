@@ -1,0 +1,40 @@
+[build-system]
+requires = ["flit_core>=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "mars-uap-detector"
+version = "0.1.0"
+description = "A Python package for detecting unidentified anomalous phenomena (UAP) on Mars using deep learning and image analysis."
+authors = [{ name = "Jean-Luc DeRieux, and Allen Chandler" }]
+requires-python = ">=3.8"
+keywords = [
+  "UAP",
+  "Mars",
+  "anomaly detection",
+  "deep learning",
+  "PyTorch",
+  "computer vision"
+]
+classifiers = [
+  "Topic :: Scientific/Engineering :: Image Processing",
+  "Programming Language :: Python :: 3",
+  "Development Status :: 3 - Alpha",
+]
+
+dependencies = [
+  "torch>=1.13",           # Core deep learning framework
+  "numpy>=1.21",           # Numerical processing
+  "opencv-python>=4.5",    # For image processing and analysis
+  "matplotlib>=3.5",       # Visualization of data and results
+  "requests>=2.25.1",      # For any web requests if needed
+  "selenium>=4.0.0",       # For automating browser actions
+  "python-dotenv>=0.21"    # To load environment variables from .env files
+]
+
+[project.urls]
+Source = "https://github.com/Jean-LucDeRieux/detect-uap-mars"
+Tracker = "https://github.com/Jean-LucDeRieux/detect-uap-mars/issues"
+
+[tool.flit.module]
+name = "mars_uap_detector"
