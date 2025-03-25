@@ -4,6 +4,13 @@ Detection of Unidentified Anomalous Phenomena (UAP) on Mars
 ### Stack
 - Python
 
+### Python Virtual Env. commands
+- Downloading uv: `pip install uv`
+- Creates (or updates) python uv virtual env: `uv sync`
+- Open up a Vir. Env. uv shell: `uv shell`
+- Downloading a library: `uv pip install PackageName`
+- Run a server for jupyter notebook: `uv run jupyter notebook`
+
 # Misc
 - This repository uses conventional commits: https://www.conventionalcommits.org/en/v1.0.0/#summary
     - feat: – a new feature is introduced with the changes
