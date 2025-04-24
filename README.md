@@ -1,5 +1,28 @@
 # detect-uap-mars
-Detection of Unidentified Anomalous Phenomena (UAP) on Mars
+A fully synthetic data-generation pipeline for training UAP (Unidentified Anomalous Phenomena) classification model on Martian imagery.
+
+**Key Features:**
+- **NASA Mastcam Integration**  
+  Automatically downloads raw Perseverance Mastcam images from the official NASA archive.
+- **Random ROI Sampling**  
+  Selects random Regions of Interest (ROIs) within each image for anomaly insertion.
+- **Semantic Inpainting**  
+  Uses a Stable Diffusion–based inpainting model to place UAP targets based on target descriptions.
+- **Adaptive Color Blending**  
+  Computes and applies an average color tint to each inserted target for seamless integration.
+- **Support for YOLO Format**  
+  Generates corresponding YOLO-style bounding box annotations and label files for each synthetic anomaly. 
+
+# Sources
+NASA. “Sol 2692: Mast Camera (Mastcam) – Raw Image from Mars Perseverance Rover.” Feb. 26, 2024. Available: https://mars.nasa.gov/raw_images/787528/. 
+
+All-domain Anomaly Resolution Office (AARO). “Official UAP Imagery.” Available: https://www.aaro.mil/UAP-Cases/Official-UAP-Imagery/. 
+
+Skywatcher Team. “Part II: UAP Classification Overview.” YouTube, Apr. 22, 2025. Available: https://www.youtube.com/watch?v=2VN3omlVqxk. 
+
+Ultralytics. “YOLOv5.” GitHub repository. Available: https://github.com/ultralytics/yolov5.
+
+Stability AI. “stabilityai/stable-diffusion-2-inpainting.” GitHub repository. Available: https://github.com/Stability-AI/stable-diffusion-2-inpainting. 
 
 ### Stack
 - Python
@@ -10,21 +33,3 @@ Detection of Unidentified Anomalous Phenomena (UAP) on Mars
 - Open up a Vir. Env. uv shell: `uv shell`
 - Downloading a library: `uv pip install PackageName`
 - Run a server for jupyter notebook: `uv run jupyter notebook`
-
-# Misc
-- This repository uses conventional commits: https://www.conventionalcommits.org/en/v1.0.0/#summary
-    - feat: – a new feature is introduced with the changes
-    - fix: – a bug fix has occurred
-    - chore: – changes that do not relate to a fix or feature and don't modify src or test files (for example updating dependencies)
-    - refactor: – refactored code that neither fixes a bug nor adds a feature
-    - docs: – updates to documentation such as a the README or other markdown files
-    - style: – changes that do not affect the meaning of the code, likely related to code formatting such as white-space, missing semi-colons, and so on.
-    - test: – including new or correcting previous tests
-    - perf: – performance improvements
-    - ci: – continuous integration related
-    - build: – changes that affect the build system or external dependencies
-    - revert: – reverts a previous commit
-- Useful Latex equation formulas: https://blmoistawinde.github.io/ml_equations_latex/#softmax
-
-
-
