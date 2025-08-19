@@ -1,0 +1,29 @@
+model training pipeline
+
+config.py: Holds hyperparameters and configuration settings.
+
+dataset.py: Contains data loading, augmentation, and preprocessing routines.
+
+model.py: Defines the detection model architecture (e.g., classification/ROI network).
+
+train.py: Implements the main training loop, including training, validation, and checkpointing.
+
+utils.py: Provides helper functions for logging, visualization, and model saving/loading.
+
+Evaluation and Metrics section
+
+evaluate.py: Handles running the model on the test/validation dataset and generating predictions.
+
+metrics.py: Contains functions to compute evaluation metrics (mAP, recall, precision, IoU, etc.).
+
+visualize.py: Provides utilities for plotting detection results and visualizing bounding boxes on images.
+
+deployment and inference
+
+export_model.py: Converts the trained model (e.g., to ONNX or TensorRT format).
+
+inference.py: Loads the converted model and runs inference on new images.
+
+server.py: (Optional) Hosts an API or web service for real-time inference.
+
+deploy_utils.py: Contains helper functions for deployment tasks (e.g., image preprocessing, postprocessing of outputs).

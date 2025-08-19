@@ -1,0 +1,81 @@
+Below is a complete step‐by‐step guide that covers all the major Python scripts you need to run—from training to evaluation to deployment—inside your Docker container.
+
+---
+
+### Step-by-Step Process
+
+1. **Build the Docker Image**  
+   Open a terminal (or PowerShell), navigate to your project root, and build the Docker image:
+   ```bash
+   cd E:\projects\UAP
+   docker build -t uap_project .
+   ```
+
+2. **Run the Docker Container Interactively**  
+   To run and interact with the container (so you can run different scripts one by one), start it in interactive mode:
+   ```bash
+   docker run --gpus all -it -p 5000:5000 -v E:\projects\UAP\data:/app/data uap_project /bin/bash
+   ```
+   This command:
+   - Allocates available GPUs.
+   - Maps port 5000 for your Flask server.
+   - Mounts your local data folder at `/app/data`.
+   - Opens an interactive shell inside the container.
+
+3. **Training the Model**  
+   Inside the container shell, navigate to the training directory and run the training script:
+   ```bash
+   cd src/train
+   python3 train.py
+   ```
+   This will run your training pipeline (using `config.py`, `dataset.py`, `model.py`, `train.py`, and `utils.py`) and save checkpoints (including the best model).
+
+4. **Evaluating the Model**  
+   After training completes, switch to the evaluation directory to assess model performance:
+   ```bash
+   cd ../Eval
+   python3 evaluate.py
+   ```
+   This script will load the best checkpoint and run evaluation (using `evaluate.py`, `metrics.py`, and `visualize.py`).
+
+5. **Exporting the Model for Deployment**  
+   Next, convert your trained model to ONNX format by navigating to the deploy directory:
+   ```bash
+   cd ../deploy
+   python3 export_model.py
+   ```
+   This will export the model to an ONNX file (e.g., `uap_detection.onnx`).
+
+6. **Running Inference**  
+   To test the exported model on a new image:
+   ```bash
+   python3 inference.py
+   ```
+   (Make sure a test image is available in your data folder.)
+
+7. **Starting the Inference Server**  
+   Finally, to launch the Flask server for real-time predictions:
+   ```bash
+   python3 server.py
+   ```
+   The server will start and listen on port 5000. You can now send POST requests to the `/predict` endpoint.
+
+---
+
+### Summary of Python Scripts
+
+- **Training Pipeline (src/train):**
+  - `train.py` (entry point for training)
+  - `config.py`, `dataset.py`, `model.py`, `utils.py` (support modules)
+  
+- **Evaluation & Metrics (src/Eval):**
+  - `evaluate.py` (runs evaluation)
+  - `metrics.py`, `visualize.py` (support modules)
+
+- **Deployment/Inference (src/deploy):**
+  - `export_model.py` (exports model to ONNX)
+  - `inference.py` (runs a single inference)
+  - `server.py` (launches the Flask API)
+  - `deploy_utils.py` (support functions)
+
+By following these steps, you'll run the project from start (training) to finish (deployment/inference) within your Docker container.

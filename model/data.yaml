@@ -1,0 +1,5 @@
+train: /app/data/train/images
+val:   /app/data/val/images
+test:  /app/data/test/images   # optional
+nc:    1
+names: ['uap']
