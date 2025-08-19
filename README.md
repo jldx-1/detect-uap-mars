@@ -1,7 +1,7 @@
 # detect-uap-mars
 A fully synthetic data-generation pipeline for training UAP (Unidentified Anomalous Phenomena) classification model on Martian imagery.
 
-# Contributers
+**Contributers**
 Jean-Luc DeRieux and Allen Chandler
 
 **Key Features:**
@@ -16,10 +16,7 @@ Jean-Luc DeRieux and Allen Chandler
 - **Support for YOLO Format**  
   Generates corresponding YOLO-style bounding box annotations and label files for each synthetic anomaly. 
 
-https://github.com/AllenChandler/uap-detection
-
-# Sources
-# Sources
+**Sources**
 NASA. “Sol 2692: Mast Camera (Mastcam) – Raw Image from Mars Perseverance Rover.” Feb. 26, 2024. Available: https://mars.nasa.gov/raw_images/787528/  
 
 All-domain Anomaly Resolution Office (AARO). “Official UAP Imagery.” Available: https://www.aaro.mil/UAP-Cases/Official-UAP-Imagery/  
